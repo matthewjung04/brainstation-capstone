@@ -76,13 +76,13 @@ For users that struggle with time management modern AI technology can do the pla
 ## Mockups
 
 ### Home Page
-![HomePage](./client/public/Mockups/HomePage_Mockup.jpg)
+![HomePage](./public/Mockups/HomePage_Mockup.jpg)
 
 ### Login Page
-![LoginPage](./client/public/Mockups/LoginPage_Mockup.jpg)
+![LoginPage](./public/Mockups/LoginPage_Mockup.jpg)
 
 ### User Page
-![UserPage](./client/public/Mockups/UserPage_Mockup.jpg)
+![UserPage](./public/Mockups/UserPage_Mockup.jpg)
 
 ## Nice-to-haves
 - Integrate Google Calendars, Apple Calendars, Slack
