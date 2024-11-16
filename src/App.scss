@@ -1,8 +1,6 @@
+@use './styles/partials/fonts' as *;
+
 body {
-  width: auto;
-  height: 95vh;
-  background-image: url('./assets/images/background-photo.png');
-  background-size: 100% 106%;
-  background-repeat: no-repeat;
-  background-position: top;
+  font-family: Coustard-Regular;
+  margin: 0;
 }

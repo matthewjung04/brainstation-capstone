@@ -1,0 +1,67 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+h2 {
+  font-family: Coustard-Regular;
+  font-size: 20px;
+  font-weight: 500;
+  color: $white;
+}
+
+.header {
+  background-color: $default-blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__logo {
+    text-decoration: none;
+    font-family: Coustard-Black;
+    font-size: 24px;
+    color: $white;
+
+    display: flex;
+    flex-direction: row;
+    padding: 1.25rem;
+    padding-left: 3rem;
+
+    &__image {
+      width: 42px;
+      margin-right: 0.5rem;
+    }
+
+    &__title {
+      margin: 0;
+    }
+  }
+
+  &__nav {
+    width: 16rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3rem;
+
+    &__features {
+      display: flex;
+      align-items: center;
+
+      &__image {
+        margin-left: 0.25rem;
+      }
+    }
+
+    &__signin {
+      background-color: $default-blue;
+      border: none;
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      height: 2rem;
+    }
+  }
+}
