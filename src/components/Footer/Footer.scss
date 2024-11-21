@@ -1,0 +1,64 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+#social-link {
+  background-color: $white;
+  padding: 0.35rem 0.3rem;
+  margin: 1rem;
+  border-radius: 10%;
+}
+
+#social-logo {
+  width: 1.5rem;
+  background-color: $white;
+  vertical-align: middle;
+  
+}
+
+.footer {
+  background-color: $default-blue;
+  padding: 2rem 3rem 1rem 3rem;
+  @include footer-position;
+
+  display: flex;
+  flex-direction: column;
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    // &__logo {
+    //   width: auto;
+    // }
+
+    &__mission-statement {
+
+      &__message  {
+        width: 20rem;
+      }
+      
+    }
+
+    &__site-map {
+      
+
+      &__nav {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    // &__contact {
+    //   width: 50rem;
+    // }
+  }
+
+  &__copyright {
+    color: $watermark-grey;
+    margin-top: 1rem;
+    align-self: center;
+  }
+}

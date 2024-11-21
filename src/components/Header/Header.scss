@@ -5,9 +5,9 @@
 
 h2 {
   font-family: Coustard-Regular;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
-  color: $white;
+  color: $white; 
 }
 
 .header {
@@ -19,16 +19,17 @@ h2 {
   &__logo {
     text-decoration: none;
     font-family: Coustard-Black;
-    font-size: 24px;
+    font-size: 18px;
     color: $white;
 
     display: flex;
     flex-direction: row;
-    padding: 1.25rem;
+
+    padding: 1rem;
     padding-left: 3rem;
 
     &__image {
-      width: 42px;
+      width: 32px;
       margin-right: 0.5rem;
     }
 
@@ -38,7 +39,7 @@ h2 {
   }
 
   &__nav {
-    width: 16rem;
+    width: 14rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

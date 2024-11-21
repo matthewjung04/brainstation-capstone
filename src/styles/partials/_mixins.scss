@@ -1,2 +1,9 @@
 @use './colors' as *;
 @use './fonts' as *;
+
+@mixin footer-position {
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+}

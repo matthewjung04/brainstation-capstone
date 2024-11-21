@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import TimeLogo from '../../assets/logo/time_auto_24dp.svg'
 import DropDownArrow from '../../assets/icons/arrow_drop_down_white.svg'
 import './Header.scss'
