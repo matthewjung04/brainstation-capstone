@@ -12,9 +12,11 @@ function Footer() {
     <section className='footer'>
       <article className='footer__main'>
         <div className='footer__main__logo'>
-          <img src={TimeLogo} alt='logo-image'/>
-          <h1 className='footer__main__logo__title'>TimeZest</h1>
-          <p className='footer__main__logo__messsage'>The zesty way to schedule</p>
+          <div className='footer__main__logo__header'>
+            <img src={TimeLogo} alt='logo-image' className='footer__main__logo__header__image'/>
+            <h1 className='footer__main__logo__header__title'>TimeZest</h1>
+          </div>
+          <p className='footer__main__logo__message'>The zesty way to schedule</p>
         </div>
         <div className='footer__main__mission-statement'>
           <h3 className='footer__main__mission-statement__title'>Mission Statement</h3>

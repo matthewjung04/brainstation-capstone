@@ -3,10 +3,16 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
+#site-map-link {
+  text-decoration: none;
+  color: $white;
+  margin-bottom: 0.25rem;
+}
+
 #social-link {
   background-color: $white;
   padding: 0.35rem 0.3rem;
-  margin: 1rem;
+  margin-right: 1rem;;
   border-radius: 10%;
 }
 
@@ -14,12 +20,11 @@
   width: 1.5rem;
   background-color: $white;
   vertical-align: middle;
-  
 }
 
 .footer {
   background-color: $default-blue;
-  padding: 2rem 3rem 1rem 3rem;
+  padding: 1.5rem 3rem;
   @include footer-position;
 
   display: flex;
@@ -30,20 +35,55 @@
     flex-direction: row;
     justify-content: space-between;
 
-    // &__logo {
-    //   width: auto;
-    // }
+    &__logo {
+      padding-top: 2rem;
+
+      &__header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 0.5rem;
+  
+        &__image {
+          width: 40px;
+          margin-right: 0.5rem;
+        }
+  
+        &__title {
+          font-family: Coustard-Black;
+          color: $white;
+          font-size: 32px;
+          margin: 0;
+        }
+      }
+
+      &__message {
+        color: $white;
+        font-size: 16px;
+        font-style: italic;
+
+        margin: 0;
+        margin-left: 1rem;
+      }
+    }
 
     &__mission-statement {
 
+      &__title {
+        @include footer-titles;
+      }
+
       &__message  {
         width: 20rem;
+        color: $white;
+        margin: 0;
       }
-      
     }
 
     &__site-map {
-      
+      &__title {
+        @include footer-titles;
+      }
 
       &__nav {
         display: flex;
@@ -51,14 +91,31 @@
       }
     }
 
-    // &__contact {
-    //   width: 50rem;
-    // }
+    &__contact {
+      display: flex;
+      flex-direction: column;
+      
+      &__email {
+        &__title {
+          @include footer-titles;
+        }
+
+        &__link {
+          color: $white;
+        }
+      }
+
+      &__social {
+        margin-top: 1.5rem;
+      }
+
+    }
   }
 
   &__copyright {
     color: $watermark-grey;
-    margin-top: 1rem;
+    margin: 0;
+    margin-top: 1.25rem;
     align-self: center;
   }
 }

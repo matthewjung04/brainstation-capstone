@@ -7,3 +7,12 @@
   bottom:0;
   right:0;
 }
+
+@mixin footer-titles {
+  font-family: Coustard-Black;
+  font-size: 16px;
+  color: $white;
+
+  margin: 0;
+  margin-bottom: 1rem;
+}
