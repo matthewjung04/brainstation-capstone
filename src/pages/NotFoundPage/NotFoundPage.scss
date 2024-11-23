@@ -1,0 +1,13 @@
+@use '../../styles/partials/fonts' as *;
+
+.not-found {
+  padding: 3rem;
+
+  &__heading {
+    font-size: 32px;
+  }
+
+  &__subheading {
+    font-size: 18px;
+  }
+}
