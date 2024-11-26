@@ -1,12 +1,6 @@
 @use './colors' as *;
 @use './fonts' as *;
-
-@mixin footer-position {
-  position:absolute;
-  left:0;
-  bottom:0;
-  right:0;
-}
+@use './variables' as *;
 
 @mixin footer-titles {
   font-family: Coustard-Black;
@@ -15,4 +9,16 @@
 
   margin: 0;
   margin-bottom: 1rem;
+}
+
+@mixin tablet {
+  @media (min-width: $min-tablet-width) and (max-width: $max-tablet-width) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $max-mobile-width) {
+    @content;
+  }
 }

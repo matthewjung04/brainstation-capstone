@@ -1,0 +1,125 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+#feature-icons {
+  width: 6rem;
+  padding-top: 0.5rem;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__sign-up {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20rem;
+    margin: 2rem 0;
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      padding-left: 4rem;
+  
+      &__title {
+        width: 30rem;
+        margin: 0;
+        margin-bottom: 2rem;
+  
+        font-family: Coustard-Black;
+        font-size: 40px;
+      }
+  
+      &__input {
+        width: 16rem;
+        height: 2rem;
+        font-family: Coustard-Regular;
+        font-size: 16px;
+  
+        padding: 0.25rem;
+        padding-left: 2rem;
+        margin-bottom: 1rem;
+        border-radius: 20px;
+        border: 1px solid $black;
+      }
+  
+      &__button {
+        width: 12rem;
+        height: 2rem;
+        background-color: $blue;
+
+        font-family: Coustard-Regular;
+        font-size: 16px;
+        color: $white;
+
+        border: none;
+        border-radius: 20px;
+      }
+    }
+
+    &__calendar-photo {
+      width: 30rem;
+    }
+
+    &__clock-photo {
+      width: 12rem;
+      align-self: end;
+      margin-left: -10rem;
+    }
+  }
+
+  &__features {
+    margin: 1rem 0 1.5rem -15rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &__calendars {
+      margin-left: 24rem;
+      width: 6rem;
+      transition: width 1s ease-in-out;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &__title {
+        font-size: 16px;
+        padding: 0 1rem;
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+      }
+
+      &:hover {
+        width: 7rem;
+  
+        .homepage__features__calendars__title {
+          opacity: 1;
+        }
+      }
+    }
+
+    &__reminders {
+      @extend .homepage__features__calendars;
+      margin-left: 8rem;
+
+      &__title {
+        @extend .homepage__features__calendars__title;
+      }
+    }
+
+    &__tasklist {
+      @extend .homepage__features__reminders;
+
+      &__title {
+        @extend .homepage__features__calendars__title;
+      }
+    }
+  }
+
+}

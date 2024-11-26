@@ -23,10 +23,9 @@
 }
 
 .footer {
-  background-color: $default-blue;
-  padding: 1.5rem 3rem;
-  @include footer-position;
-
+  background-color: $blue;
+  padding: 2rem 3rem;
+  
   display: flex;
   flex-direction: column;
 
@@ -75,8 +74,10 @@
 
       &__message  {
         width: 20rem;
-        color: $white;
         margin: 0;
+
+        color: $white;
+        line-height: 22px;
       }
     }
 
@@ -115,7 +116,8 @@
   &__copyright {
     color: $watermark-grey;
     margin: 0;
-    margin-top: 1.25rem;
+    margin-top: 2rem;
+    padding-top: 0.5  rem;
     align-self: center;
   }
 }
