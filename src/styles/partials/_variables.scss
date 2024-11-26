@@ -1,2 +1,9 @@
 @use './colors' as *;
 @use './fonts' as *;
+
+// Tablet responsive design parameters
+$max-tablet-width: 1279px;
+$min-tablet-width: 768px;
+
+// Mobile reponsive design parameters
+$max-mobile-width: 767px;
