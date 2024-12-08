@@ -58,6 +58,7 @@
 
         border: none;
         border-radius: 20px;
+        cursor: pointer;
       }
     }
 
@@ -121,5 +122,8 @@
       }
     }
   }
+}
 
+.input-error {
+  border: 2px solid $red;
 }
