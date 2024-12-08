@@ -51,6 +51,7 @@ function SignInModal() {
             var popup = document.getElementById("sign-in-modal");
             popup.style.display = "none";
             setHasLoggedIn(false)
+            console.log(res.data.data.name)
             navigate(`/user-page/${username}`, {state:{name: res.data.data.name, username: username}})
           })
       }

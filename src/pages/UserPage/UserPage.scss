@@ -6,3 +6,31 @@
 .user-calendar {
   background-color: $white;
 }
+
+.user-page {
+  margin: 5rem;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__title {
+      font-size: 38px;
+      margin: 0;
+      padding-bottom: 3rem;
+    }
+
+    &__button {
+      background-color: $blue;
+      border: none;
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      height: 2rem;
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+  }
+}

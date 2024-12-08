@@ -38,7 +38,6 @@ function Header() {
           ) : (
             <button type='button' className='header__nav__signin' onClick={signInHandler}><h2>Sign In</h2></button>
           )}
-          
         </div>
       </section>
     </>
