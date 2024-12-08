@@ -1,8 +1,11 @@
+@use './styles/partials/fonts' as *;
+
 body {
-  width: auto;
-  height: 95vh;
-  background-image: url('./assets/images/background-photo.png');
-  background-size: 100% 106%;
+  font-family: Coustard-Regular;
+  font-size: 13px;;
+  margin: 0;
+
+  background-image: url('./assets/images/elegant_white_background.jpg');
   background-repeat: no-repeat;
-  background-position: top;
+  background-size: cover;
 }

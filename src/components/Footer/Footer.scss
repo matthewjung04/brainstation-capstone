@@ -1,0 +1,123 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+#site-map-link {
+  text-decoration: none;
+  color: $white;
+  margin-bottom: 0.25rem;
+}
+
+#social-link {
+  background-color: $white;
+  padding: 0.35rem 0.3rem;
+  margin-right: 1rem;;
+  border-radius: 10%;
+}
+
+#social-logo {
+  width: 1.5rem;
+  background-color: $white;
+  vertical-align: middle;
+}
+
+.footer {
+  background-color: $blue;
+  padding: 2rem 3rem;
+  
+  display: flex;
+  flex-direction: column;
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__logo {
+      padding-top: 2rem;
+
+      &__header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 0.5rem;
+  
+        &__image {
+          width: 40px;
+          margin-right: 0.5rem;
+        }
+  
+        &__title {
+          font-family: Coustard-Black;
+          color: $white;
+          font-size: 32px;
+          margin: 0;
+        }
+      }
+
+      &__message {
+        color: $white;
+        font-size: 16px;
+        font-style: italic;
+
+        margin: 0;
+        margin-left: 1rem;
+      }
+    }
+
+    &__mission-statement {
+
+      &__title {
+        @include footer-titles;
+      }
+
+      &__message  {
+        width: 20rem;
+        margin: 0;
+
+        color: $white;
+        line-height: 22px;
+      }
+    }
+
+    &__site-map {
+      &__title {
+        @include footer-titles;
+      }
+
+      &__nav {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &__contact {
+      display: flex;
+      flex-direction: column;
+      
+      &__email {
+        &__title {
+          @include footer-titles;
+        }
+
+        &__link {
+          color: $white;
+        }
+      }
+
+      &__social {
+        margin-top: 1.5rem;
+      }
+
+    }
+  }
+
+  &__copyright {
+    color: $watermark-grey;
+    margin: 0;
+    margin-top: 2rem;
+    padding-top: 0.5  rem;
+    align-self: center;
+  }
+}
