@@ -1,0 +1,59 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.sign-up {
+  padding-left: 20rem;
+  margin: 2rem 0;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-left: 4rem;
+    margin-bottom: 10.5rem;
+    margin-left: 25rem;
+
+    &__title {
+      margin: 5rem 0;
+      margin-bottom: 3rem;
+
+      font-family: Coustard-Black;
+      font-size: 40px;
+    }
+
+    &__input {
+      width: 16rem;
+      height: 2rem;
+      font-family: Coustard-Regular;
+      font-size: 16px;
+
+      padding: 0.25rem;
+      padding-left: 2rem;
+      margin-bottom: 2rem;
+      margin-left: 5rem;
+      border-radius: 20px;
+      border: 1px solid $black;
+    }
+
+    &__button {
+      width: 12rem;
+      height: 2rem;
+      background-color: $blue;
+
+      font-family: Coustard-Regular;
+      font-size: 16px;
+      color: $white;
+
+      border: none;
+      border-radius: 20px;
+      margin-left: 5rem;
+      cursor: pointer;
+    }
+  }
+}
+
+.input-error {
+  border: 2px solid $red;
+}
