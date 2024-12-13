@@ -1,0 +1,76 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+label {
+  font-family: Cousatrd-Regular;
+  font-size: 20px;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#labels {
+  color: $black;
+  font-family: Cousatrd-Regular;
+  font-size: 20px;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#input-block {
+  display: flex;
+  flex-direction: row;
+}
+
+.create-event {
+  width: 30rem;
+
+  padding: 4rem;
+  border-radius: 20px;
+  margin: 4rem 20rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    padding-left: 4rem;
+
+    &__title {
+      width: 30rem;
+      margin: 0;
+      margin-bottom: 2rem;
+
+      font-family: Coustard-Black;
+      font-size: 40px;
+    }
+
+    &__input {
+      width: 16rem;
+      height: 2rem;
+      font-family: Coustard-Regular;
+      font-size: 16px;
+
+      padding: 0.25rem;
+      padding-left: 2rem;
+      margin-bottom: 1rem;
+      margin-right: 2rem;
+      border-radius: 20px;
+      border: 1px solid $black;
+    }
+
+    &__button {
+      width: 12rem;
+      height: 2.5rem;
+      background-color: $blue;
+
+      font-family: Coustard-Regular;
+      font-size: 16px;
+      color: $white;
+
+      border: none;
+      border-radius: 20px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+  }
+}
