@@ -1,11 +1,10 @@
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import moment from 'moment'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { url } from '../../utils/utils'
-import CreateEvent from '../../components/createEvent/CreateEvent'
 import './UserPage.scss'
 
 
@@ -43,7 +42,9 @@ function UserPage() {
     <section className='user-page'>
       <div className='user-page__header'>
         <h1 className='user-page__header__title'>{`${profileName}'s Page`}</h1>
-        <button type='button' className='user-page__header__button'><h2>Add Event</h2></button>
+        <Link to={`/${username}/new-event`}>
+          <button type='button' className='user-page__header__button'><h2>Add Event</h2></button>
+        </Link>
       </div>
       
       <div className='user-calendar'>
@@ -53,6 +54,7 @@ function UserPage() {
           startAccessor="start"
           endAccessor="end"
           style={{ height: 500 }}
+          onSelectEvent={event => alert(`${event.title} starting at ${event.start}`)}
         />
       </div>
     </section>
