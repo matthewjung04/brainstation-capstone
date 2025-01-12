@@ -9,7 +9,10 @@ function SignInModal() {
   const navigate = useNavigate();
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
-  const [hasLoggedIn, setHasLoggedIn] = useState(null);
+  const [hasLoggedIn, setHasLoggedIn] = useState(false);
+  const [hasConfirmedLog, setHasComfirmedLog] = useState(false);
+  const [isLoginError, setIsLoginError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const inputHandler = (e) => {
     const errorClass = e.target.className;
@@ -42,19 +45,27 @@ function SignInModal() {
   useEffect(() => {
     const fetchUser = async () => {
       if(hasLoggedIn) {
-        await axios
+        try {
+          await axios
           .post(`${url}/authentication/sign-in`, {
             username: username,
             password: password
           })
           .then((res) => {
+            sessionStorage.setItem("JWTtoken", res.data.token);
+            setHasComfirmedLog(true);
+            setIsLoginError(false);
+
             var popup = document.getElementById("sign-in-modal");
             popup.style.display = "none";
             setHasLoggedIn(false)
-            console.log(res.data.data.name)
-            navigate(`/user-page/${username}`, {state:{name: res.data.data.name, username: username}})
+            navigate(`/user-page/${username}`);
           })
-      }
+        } catch (err) {
+          setIsLoginError(true);
+          setErrorMessage(err.res.data.error.message);
+        }
+      } 
     }
     fetchUser()
   },[hasLoggedIn])
