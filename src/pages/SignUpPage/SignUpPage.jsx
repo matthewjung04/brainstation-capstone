@@ -54,7 +54,7 @@ function SignUpPage() {
             password: password
           })
           .then(() => {
-            navigate(`/user-page/${username}`, { state:{name: regName }})
+            navigate(`/user-page/${username}`);
           })
       }
     }

@@ -1,5 +1,4 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
 import SignInModal from '../SignInModal/SignInModal'
 import TimeLogo from '../../assets/logo/time_auto_24dp.svg'
 import DropDownArrow from '../../assets/icons/arrow_drop_down_white.svg'
@@ -7,16 +6,15 @@ import './Header.scss'
 
 function Header() {
   const navigate = useNavigate()
-  const [hasAuthenticated, setHasAuthenticated] = useState(false)
+  const token = sessionStorage.getItem("JWTtoken");
 
   const signInHandler = (e) => {
     var popup = document.getElementById("sign-in-modal");
     popup.style.display = "block";
-    setHasAuthenticated(true);
   }
 
   const signOutHandler = (e) => {
-    setHasAuthenticated(false);
+    sessionStorage.removeItem("JWTtoken")
     navigate('/')
   }
 
@@ -33,7 +31,7 @@ function Header() {
             Features
             <img src={DropDownArrow} alt='dropdown-icon' className='header__nav__features__image'/>
           </h2>
-          {hasAuthenticated ? (
+          {token ? (
             <button type='button' className='header__nav__signin' onClick={signOutHandler}><h2>Sign Out</h2></button>
           ) : (
             <button type='button' className='header__nav__signin' onClick={signInHandler}><h2>Sign In</h2></button>
