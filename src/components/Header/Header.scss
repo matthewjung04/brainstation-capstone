@@ -7,7 +7,12 @@ h2 {
   font-family: Coustard-Regular;
   font-size: 16px;
   font-weight: 500;
-  color: $white; 
+  color: $white;
+
+  @include mobile {
+    margin-bottom: 0;
+    padding-bottom: 2rem;
+  }
 }
 
 .header {
@@ -49,10 +54,6 @@ h2 {
     &__features {
       display: flex;
       align-items: center;
-
-      &__image {
-        margin-left: 0.25rem;
-      }
     }
 
     &__signin {
@@ -63,6 +64,16 @@ h2 {
       display: flex;
       align-items: center;
       height: 2rem;
+    }
+  }
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__nav {
+      padding: 0;
     }
   }
 }

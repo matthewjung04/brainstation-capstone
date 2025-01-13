@@ -95,7 +95,7 @@ function UserPage() {
         <div className='user-page__header'>
           <h1 className='user-page__header__title'>{`${userInfo.name}'s Page`}</h1>
           <Link to={`/${username}/new-event`}>
-            <button type='button' className='user-page__header__button'><h2>Add Event</h2></button>
+            <button type='button' className='user-page__header__button'><h4>Add Event</h4></button>
           </Link>
         </div>
         

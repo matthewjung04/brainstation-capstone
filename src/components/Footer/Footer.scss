@@ -15,12 +15,20 @@
   padding: 0.35rem 0.3rem;
   margin-right: 1rem;;
   border-radius: 10%;
+
+  @include tablet {
+    padding: 0.2rem;
+  }
 }
 
 #social-logo {
   width: 1.5rem;
   background-color: $white;
   vertical-align: middle;
+
+  @include tablet {
+    width: 1.25rem;
+  }
 }
 
 .footer {
@@ -35,8 +43,16 @@
     flex-direction: row;
     justify-content: space-between;
 
+    @include tablet {
+      justify-content: space-evenly;
+    }
+
     &__logo {
       padding-top: 2rem;
+
+      @include tablet {
+        width: 10rem;
+      }
 
       &__header {
         display: flex;
@@ -54,6 +70,10 @@
           color: $white;
           font-size: 32px;
           margin: 0;
+
+          @include tablet {
+            font-size: 22px;
+          }
         }
       }
 
@@ -69,8 +89,17 @@
 
     &__mission-statement {
 
+      @include tablet {
+        width: 10rem;
+        margin: 0 1.5rem;
+      }
+
       &__title {
         @include footer-titles;
+
+        @include mobile {
+          padding-top: 1rem;
+        }
       }
 
       &__message  {
@@ -79,27 +108,51 @@
 
         color: $white;
         line-height: 22px;
+
+        @include tablet {
+          width: 10rem;
+        }
+
+        @include mobile {
+          width: 15rem;
+        }
       }
     }
 
     &__site-map {
       &__title {
         @include footer-titles;
+
+        @include mobile {
+          padding-top: 1rem;
+        }
       }
 
       &__nav {
         display: flex;
         flex-direction: column;
+
+        @include tablet {
+          width: 6rem;
+        }
       }
     }
 
     &__contact {
       display: flex;
       flex-direction: column;
+
+      @include tablet{
+        margin-left: 2rem;
+      }
       
       &__email {
         &__title {
           @include footer-titles;
+
+          @include mobile {
+            padding-top: 1rem;
+          } 
         }
 
         &__link {
@@ -109,6 +162,10 @@
 
       &__social {
         margin-top: 1.5rem;
+        
+        @include tablet {
+          width: 12rem;
+        }
       }
 
     }
@@ -120,5 +177,12 @@
     margin-top: 2rem;
     padding-top: 0.5  rem;
     align-self: center;
+  }
+
+  @include mobile {
+    &__main {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
