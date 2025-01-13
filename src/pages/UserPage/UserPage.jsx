@@ -39,7 +39,7 @@ function UserPage() {
 
     fetchProfile();
   }, [token]);
-  console.log(userInfo.username)
+
   useEffect(() => {
     const fetchEvents = async () => {
       if(userInfo.username) {

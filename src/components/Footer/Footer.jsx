@@ -26,11 +26,11 @@ function Footer() {
         </div>
         <div className='footer__main__site-map'>
           <h3 className='footer__main__site-map__title'>Site Map</h3>
-          <nav className='footer__main__site-map__nav'>
-            <NavLink id='site-map-link'>My Profie</NavLink>
-            <NavLink id='site-map-link'>My Calendars</NavLink>
-            <NavLink id='site-map-link'>My Reminders</NavLink>
-          </nav>
+          <div className='footer__main__site-map__nav'>
+            <p id='site-map-list'>My Profie</p>
+            <p id='site-map-list'>My Calendars</p>
+            <p id='site-map-list'>My Reminders</p>
+          </div>
         </div>
         <div className='footer__main__contact'>
           <div className='footer__main__contact__email'>
