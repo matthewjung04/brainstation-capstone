@@ -1,7 +1,7 @@
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import moment from 'moment'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { url } from '../../utils/utils'
@@ -12,15 +12,37 @@ function UserPage() {
   const token = sessionStorage.getItem("JWTtoken");
   const {username} = useParams();
 
+  const location = useLocation();
+  
   let [userEvents, setUserEvents] = useState([]);
   let [userInfo, setUserInfo] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoginError, setIsLoginError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const localizer = momentLocalizer(moment);
 
   useEffect(() => {
-    if (!token) {
-      return;
+    if (!token && location.state) {
+      const fetchUser = async () => {
+        try {
+          await axios
+          .post(`${url}/authentication/sign-in`, {
+            username: location.state.username,
+            password: location.state.password
+          })
+          .then((res) => {
+            sessionStorage.setItem("JWTtoken", res.data.token);
+            setHasComfirmedLog(true);
+            setIsLoginError(false);
+          })
+        } catch (err) {
+          setIsLoginError(true);
+          setErrorMessage(err.res.data.error.message);
+        }
+      }
+      fetchUser()
+      
     }
 
     const fetchProfile = async () => {
