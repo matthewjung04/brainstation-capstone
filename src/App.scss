@@ -3,9 +3,13 @@
 body {
   font-family: Coustard-Regular;
   font-size: 13px;;
+  
   margin: 0;
+  width: 100%;
+
+  overflow-x: hidden;
 
   background-image: url('./assets/images/elegant_white_background.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auo;
 }

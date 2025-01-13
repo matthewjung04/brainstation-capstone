@@ -30,6 +30,10 @@ label {
   border-radius: 20px;
   margin: 4rem 20rem;
 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
   &__form {
     display: flex;
     flex-direction: column;

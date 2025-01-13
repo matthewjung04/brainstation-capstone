@@ -12,13 +12,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  
   &__sign-up {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: 20rem;
     margin: 2rem 0;
+
+    @include tablet {
+      padding-left: 10rem;
+    }
 
     &__form {
       display: flex;
@@ -69,12 +73,28 @@
 
     &__calendar-photo {
       width: 30rem;
+
+      @include tablet {
+        display: none;
+      }
+
+      @include mobile {
+        display: none;
+      }
     }
 
     &__clock-photo {
       width: 12rem;
       align-self: end;
       margin-left: -10rem;
+
+      @include tablet {
+        display: none;
+      }
+
+      @include mobile {
+        display: none;
+      }
     }
   }
 
@@ -124,6 +144,50 @@
 
       &__title {
         @extend .homepage__features__calendars__title;
+      }
+    }
+
+    @include tablet {
+      margin-right:12rem;
+    }
+  }
+
+  @include mobile {
+    &__sign-up {
+      padding: 0;
+
+      &__form {
+        padding: 0;
+
+        &__title {
+          width: 16rem;
+          font-size: 30px;
+        }
+      }
+    }
+
+    &__features {
+      display: flex;
+      flex-direction: column;
+      padding-left: 5rem;
+
+      &__calendars {
+        margin: 0;
+        transition: none;
+
+        &:hover {
+          width: 6rem;
+        }
+
+        &__title {
+          transition: none;
+          opacity: 1;
+        }
+      }
+
+      &__reminders {
+        margin: 0;
+        transition: none;
       }
     }
   }

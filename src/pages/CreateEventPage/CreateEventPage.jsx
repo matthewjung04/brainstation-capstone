@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { url } from '../../utils/utils.jsx'
 import './CreateEventPage.scss'
-import { use } from 'react'
 
 function CreateEventPage() {
-  const location = useLocation();
   const navigate = useNavigate();
 
   const { username } = useParams();
@@ -15,12 +13,14 @@ function CreateEventPage() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [hasCreated, setHasCreated] = useState(null);
+  const [newEventName, setNewEventName] = useState(null);
+  const [hasAutocomplete, setHasAutocomplete] =useState(false)
 
   const createEventHandler = (e) => {
     e.preventDefault();
     setEventName(e.target.eventName.value);
     setStartDate(`${e.target.eventStartDate.value} ${e.target.eventStartTime.value}`);
-    setStartDate(`${e.target.eventEndDate.value} ${e.target.eventEndTime.value}`);
+    setEndDate(`${e.target.eventEndDate.value} ${e.target.eventEndTime.value}`);
     setHasCreated(true)
   }
 
@@ -31,27 +31,36 @@ function CreateEventPage() {
           .post(`${url}/events/${username}`, {
             eventName: eventName,
             startDate: startDate,
-            endDate: startDate,
+            endDate: endDate,
             repeat: "none"
           })
           .then(() => {
-            navigate(`/user-page/${username}`, {state:{name: "Matthew"}})
+            navigate(`/user-page/${username}`)
           })
       }
     }
     fetchNewEvent();
   },[hasCreated])
 
+  const generateAI = (e) => {
+    setNewEventName(e.target.value)
+  }
+
+  useEffect(() => {
+
+  },[newEventName])
+
   return (
     <div className='create-event'>
       <form className='create-event__form' onSubmit={createEventHandler}>
         <h1 className='create-event__form__title'>Create New Event</h1>
-        <label htmlFor='eventName' id='labels'>Event Time:</label>
+        <label htmlFor='eventName' id='labels'>Event Title:</label>
         <input
           type='text'
           name='eventName'
           placeholder='Event Name'
           className='create-event__form__input'
+          onChange={generateAI}
         />
         <div>
           <h2 id='labels'>Start Date & Time</h2>
@@ -89,6 +98,11 @@ function CreateEventPage() {
         </div>
         <button type='submit' className='create-event__form__button'>Create Event</button>
       </form>
+
+      <div>
+        <h1>Suggested Events:</h1>
+      </div>
+
     </div>
     )
 }
