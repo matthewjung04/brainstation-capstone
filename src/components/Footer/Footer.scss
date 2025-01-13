@@ -3,9 +3,10 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-#site-map-link {
+#site-map-list {
   text-decoration: none;
   color: $white;
+  margin: 0;
   margin-bottom: 0.25rem;
 }
 

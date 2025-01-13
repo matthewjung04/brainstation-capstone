@@ -1,4 +1,7 @@
 import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { url } from '../../utils/utils'
 import calendarImage from '../../assets/images/calendar_asset.jpg'
 import clockImage from '../../assets/images/clock_asset.png'
 import autoCalendarIcon from '../../assets/icons/automatic_calendar_icon.png'
@@ -8,6 +11,28 @@ import './HomePage.scss'
 
 function HomePage() {
   const navigate = useNavigate();
+  const [userProfile, setUserProfile] = useState({});
+  const token = sessionStorage.getItem("JWTtoken");
+
+  useEffect(() => {
+    if (!token) {
+      return;
+    }
+
+    const fetchProfile = async () => {
+      try {
+        const response = await axios.get(`${url}/authentication/profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setUserProfile(response.data );
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchProfile();
+  }, [token]);
 
   const signUpUser = (e) => {
     e.preventDefault();
@@ -35,30 +60,50 @@ function HomePage() {
     }
   }
 
+  const redirectProfile = () => {
+    const username = userProfile.username;
+    navigate(`/user-page/${username}`);
+  }
+
   return (
     <section className='homepage'>
-      <article className='homepage__sign-up'>
-        <img src={calendarImage} alt='calendar-image' className='homepage__sign-up__calendar-photo'/>
-        <form className='homepage__sign-up__form' onSubmit={signUpUser}>
-          <h1 className='homepage__sign-up__form__title'>Schedule with confidence and a little zest</h1>
-          <input
-            type='text'
-            name='fullName'
-            placeholder='Full Name'
-            className='homepage__sign-up__form__input'
-            onKeyDown={inputHandler}
-          />
-          <input
-            type='text'
-            name='emailAddress'
-            placeholder='Email Address'
-            className='homepage__sign-up__form__input'
-            onKeyDown={inputHandler}
-          />
-          <button type='submit' className='homepage__sign-up__form__button'>Sign Up</button>
-        </form>
-        <img src={clockImage} alt='clock-image' className='homepage__sign-up__clock-photo'/>
-      </article>
+      {
+        token && userProfile ? (
+          <article className='homepage__sign-up'>
+            <img src={calendarImage} alt='calendar-image' className='homepage__sign-up__calendar-photo'/>
+            <div className='homepage__sign-up__form' onSubmit={signUpUser}>
+              <h1 className='homepage__sign-up__form__title'>Schedule with confidence and a little zest</h1>
+              <h1 className='homepage__sign-up__form__title--name'>{`Welcome ${userProfile.name}!`}</h1>
+              <button type='button' className='homepage__sign-up__form__button' onClick={redirectProfile}>See My Calendar</button>
+            </div>
+            <img src={clockImage} alt='clock-image' className='homepage__sign-up__clock-photo'/>
+          </article>
+        ) : (
+          <article className='homepage__sign-up'>
+            <img src={calendarImage} alt='calendar-image' className='homepage__sign-up__calendar-photo'/>
+            <form className='homepage__sign-up__form' onSubmit={signUpUser}>
+              <h1 className='homepage__sign-up__form__title'>Schedule with confidence and a little zest</h1>
+              <input
+                type='text'
+                name='fullName'
+                placeholder='Full Name'
+                className='homepage__sign-up__form__input'
+                onKeyDown={inputHandler}
+              />
+              <input
+                type='text'
+                name='emailAddress'
+                placeholder='Email Address'
+                className='homepage__sign-up__form__input'
+                onKeyDown={inputHandler}
+              />
+              <button type='submit' className='homepage__sign-up__form__button'>Sign Up</button>
+            </form>
+            <img src={clockImage} alt='clock-image' className='homepage__sign-up__clock-photo'/>
+          </article>
+        )
+      }
+
       <article className='homepage__features'>
         <div className='homepage__features__calendars'> 
           <img src={autoCalendarIcon} alt='autoCalendar-icon' id='feature-icons'/>

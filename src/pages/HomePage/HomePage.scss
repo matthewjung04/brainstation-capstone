@@ -32,6 +32,11 @@
   
         font-family: Coustard-Black;
         font-size: 40px;
+
+        &--name {
+          @extend .homepage__sign-up__form__title;
+          font-size: 30px;
+        }
       }
   
       &__input {
