@@ -33,13 +33,16 @@ function CreateEventPage() {
     let min = time.split(":")[1];
     let minutes = [min[0], min[1]].join("");
     let modifier = [min[2], min[3]].join("");
-    
+    console.log()
     if (hours === '12') {
       hours = '00';
     }
   
     if (modifier === 'PM') {
       hours = parseInt(hours, 10) + 12;
+    }
+    if (modifier === 'AM') {
+      hours = `0${hours}`
     }
   
     return `${hours}:${minutes}`;
@@ -90,30 +93,31 @@ function CreateEventPage() {
   },[newEventName])
 
   const autoSelectEvent = (e) => {
-    
-    const eventId = e.target.parentElement.id;
-    console.log(eventId)
-    console.log(`${eventId}autoEventName`)
-    // const autoEventName = document.getElementById(`${eventId}autoEventName`).textContent;
+    let eventId = e.target.id;
+    if(eventId.includes('-')) {
+      eventId = eventId.split('-')[0]
+    }
 
-    // const autoStartDate = document.getElementById(`${eventId}autoStartDate`).textContent;
-    // const autoStartTime = document.getElementById(`${eventId}autoStartTime`).textContent;
+    const autoEventName = document.getElementById(`${eventId}-autoEventName`).textContent;
 
-    // const autoEndDate = document.getElementById(`${eventId}autoEndDate`).textContent;
-    // const autoEndTime = document.getElementById(`${eventId}autoEndTime`).textContent;
+    const autoStartDate = document.getElementById(`${eventId}-autoStartDate`).textContent;
+    const autoStartTime = document.getElementById(`${eventId}-autoStartTime`).textContent;
 
-    // const currentName = document.getElementById('eventName');
-    // currentName.value = autoEventName;
+    const autoEndDate = document.getElementById(`${eventId}-autoEndDate`).textContent;
+    const autoEndTime = document.getElementById(`${eventId}-autoEndTime`).textContent;
 
-    // const currentStartDate = document.getElementById('startDate');
-    // currentStartDate.value = autoStartDate.split(" ")[1];
-    // const currentStartTime = document.getElementById('startTime');
-    // currentStartTime.value = convertTime12to24(autoStartTime.split(" ")[1]);
+    const currentName = document.getElementById('eventName');
+    currentName.value = autoEventName;
 
-    // const currentEndDate = document.getElementById('endDate');
-    // currentEndDate.value = autoEndDate.split(" ")[1];
-    // const currentEndTime = document.getElementById('endTime');
-    // currentEndTime.value = convertTime12to24(autoEndTime.split(" ")[1]);
+    const currentStartDate = document.getElementById('startDate');
+    currentStartDate.value = autoStartDate.split(" ")[1];
+    const currentStartTime = document.getElementById('startTime');
+    currentStartTime.value = convertTime12to24(autoStartTime.split(" ")[1]);
+
+    const currentEndDate = document.getElementById('endDate');
+    currentEndDate.value = autoEndDate.split(" ")[1];
+    const currentEndTime = document.getElementById('endTime');
+    currentEndTime.value = convertTime12to24(autoEndTime.split(" ")[1]);
   }
 
   return (
@@ -179,19 +183,19 @@ function CreateEventPage() {
             autoEvent ? (
               autoEvent.map((event) => (
               <div key={event._id} id={event._id} className="auto-events__list__item" onClick={autoSelectEvent}>
-                <h3 className="auto-events__list__item__title">Event Title:</h3>
-                <p className="auto-events__list__item__event-name" id={`${event._id}autoEventName`}>{event.eventName}</p>
+                <h3 className="auto-events__list__item__title" id={event._id}>Event Title:</h3>
+                <p className="auto-events__list__item__event-name" id={`${event._id}-autoEventName`}>{event.eventName}</p>
             
-                <h3 className="auto-events__list__item__title">Start Date & Time:</h3>
+                <h3 className="auto-events__list__item__title" id={event._id}>Start Date & Time:</h3>
                 <div className="auto-events__list__item__event" id={event._id}>
-                  <p className="auto-events__list__item__event__date" id={`${event._id}autoStartDate`}>{`Date: ${event.startDate.split(" ")[0]}`}</p>
-                  <p className="auto-events__list__item__event__date--time" id={`${event._id}autoStartTime`}>{`Time: ${timeConvert(event.startDate.split(" ")[1])}`}</p>
+                  <p className="auto-events__list__item__event__date" id={`${event._id}-autoStartDate`}>{`Date: ${event.startDate.split(" ")[0]}`}</p>
+                  <p className="auto-events__list__item__event__date--time" id={`${event._id}-autoStartTime`}>{`Time: ${timeConvert(event.startDate.split(" ")[1])}`}</p>
                 </div>
               
                 <h3 className="auto-events__list__item__title" id={event._id}>End Date & Time:</h3>
                 <div className="auto-events__list__item__event">
-                  <p className="auto-events__list__item__event__date" id={`${event._id}autoEndDate`}>{`Date: ${event.endDate.split(" ")[0]}`}</p>
-                  <p className="auto-events__list__item__event__date--time" id={`${event._id}autoEndTime`}>{`Time: ${timeConvert(event.startDate.split(" ")[1])}`}</p>
+                  <p className="auto-events__list__item__event__date" id={`${event._id}-autoEndDate`}>{`Date: ${event.endDate.split(" ")[0]}`}</p>
+                  <p className="auto-events__list__item__event__date--time" id={`${event._id}-autoEndTime`}>{`Time: ${timeConvert(event.endDate.split(" ")[1])}`}</p>
                 </div>
               </div>
               ))
