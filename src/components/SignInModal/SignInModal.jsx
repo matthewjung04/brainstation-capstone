@@ -21,6 +21,10 @@ function SignInModal() {
     }
   }
 
+  const closeModal = () => {
+    document.getElementById('sign-in-modal').style.display = "none";
+  }
+
   const signInUser = (e) => {
     e.preventDefault();
 
@@ -41,7 +45,7 @@ function SignInModal() {
       setHasLoggedIn(true)
     }
   }
-
+  
   useEffect(() => {
     const fetchUser = async () => {
       if(hasLoggedIn) {
@@ -72,14 +76,15 @@ function SignInModal() {
 
   return (
     <div id='sign-in-modal' className='modal'>
-      <div className='sign-in'>
+      <div className='sign-in' >
+      <h3 id='close-form' onClick={closeModal}>x</h3>
         <form className='sign-in__form' onSubmit={signInUser}>
           <h1 className='sign-in__form__title'>Sign In</h1>
           <input
             type='text'
             name='username'
             placeholder='Username'
-            className='sign-in__form__input'
+            className='sign-in__form__input' 
             onKeyDown={inputHandler}
           />
           <input

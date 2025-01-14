@@ -3,6 +3,22 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
+#close-form {
+  font-family: Coustard-Black;
+  font-size: 30px;
+  
+  margin: 0;
+  width: auto;
+
+  cursor: pointer;
+  text-align: right;
+
+  @include mobile {
+    width: 85vw;
+    margin-bottom: 2rem;
+  }
+}
+
 .modal {
   background-color: rgba(19, 24,44, 0.8);
 

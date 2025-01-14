@@ -16,23 +16,34 @@ label {
   font-size: 20px;
   margin-left: 1rem;
   margin-bottom: 0.5rem;
+
+  @include mobile {
+    width: 10rem;
+    padding-bottom: 0;
+  }
 }
 
 #input-block {
   display: flex;
   flex-direction: row;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .create-event {
-  width: 30rem;
+  width: 100%;
 
   padding: 4rem;
   border-radius: 20px;
-  margin: 4rem 20rem;
+  margin: 4rem 0;
 
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  align-items: center;
+  justify-content: center;
 
   &__form {
     display: flex;
@@ -76,5 +87,137 @@ label {
       margin-top: 1rem;
       cursor: pointer;
     }
+  }
+
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+
+    &__form {
+      width: 80vw;
+    }
+  
+  }
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    
+    width: 25vw;
+    padding: 0;
+    margin-left: -9rem;
+
+    &__form {
+      width: 25vw;
+      padding: 0rem;
+
+      &__title {
+        margin-top: 3rem;
+        font-size: 25px;
+      }
+
+      &__input {
+        width: 10rem;
+      }
+    }
+  }
+}
+
+.auto-events {
+  width: 5vw;
+  margin: 4rem;
+  margin-top: 2rem;
+
+  &__title {
+    @extend .create-event__form__title;
+    font-size: 24px;
+  }
+
+  &__list {
+    width: 18rem;
+    height: 25rem;
+    overflow-y: scroll;
+
+    background-color: $watermark-grey;
+    border-radius: 10px;
+
+    &__item {
+      padding: 1rem;
+      padding-bottom: 0;
+      
+      border-radius: 10px;
+      border-bottom: 2px solid $auto-color;
+      cursor: pointer;
+
+      &__title {
+        font-size: 16px;
+        margin: 0;
+      }
+
+      &__event-name {
+        font-size: 14px;
+        margin: 0;
+        margin-top: 0.25rem; 
+        margin-bottom: 1rem;
+      }
+
+      &__event {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+
+        &__date {
+          margin: 0;
+          margin-top: 0.25rem;
+          margin-bottom: 1rem;
+
+          &--time {
+            @extend .auto-events__list__item__event__date;
+          }
+        }
+      }
+
+      &:hover {
+        background-color:$blue;
+        color: $auto-color;
+      }
+    }
+  }
+
+  @include tablet {
+    width: 65vw;
+    margin-left: 0;
+  }
+
+  @include mobile {
+    margin: 0;
+    width: 100%;
+    justify-self: flex-start;
+
+    &__list {
+      width: 15rem;
+
+      &__item {
+        &__title {
+          font-size: 14px;
+        }
+  
+        &__event {
+          display: flex;
+          flex-direction: column;
+          
+          &__date {
+            margin-bottom: 0.25rem;
+
+            &--time {
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+    
   }
 }
