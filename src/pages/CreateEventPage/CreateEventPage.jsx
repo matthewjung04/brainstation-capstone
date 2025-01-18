@@ -120,6 +120,21 @@ function CreateEventPage() {
     currentEndTime.value = convertTime12to24(autoEndTime.split(" ")[1]);
   }
 
+  const changeToDate = (e) => {
+    const inputActive = document.getElementById(e.target.id);
+    inputActive.setAttribute('type', 'date');
+  }
+
+  const changeToTime = (e) => {
+    const inputActive = document.getElementById(e.target.id);
+    inputActive.setAttribute('type', 'time');
+  }
+
+  const changeToText = (e) => {
+    const inputActive = document.getElementById(e.target.id);
+    inputActive.setAttribute('type', 'text');
+  }
+
   return (
     <section className='create-event'>
       <form className='create-event__form' onSubmit={createEventHandler}>
@@ -137,17 +152,22 @@ function CreateEventPage() {
           <h2 id='labels'>Start Date & Time</h2>
           <div id='input-block'>
             <input
-              type='date'
+              type='text'
               name='eventStartDate'
               placeholder='Start date'
-              pattern=' '
+              onFocus={changeToDate}
+              onInput={changeToDate}
+              onBlur={changeToText}
               id='startDate'
               className='create-event__form__input'
             />
             <input
-              type='time'
+              type='text'
               name='eventStartTime'
               placeholder='Start time'
+              onFocus={changeToTime}
+              onInput={changeToTime}
+              onBlur={changeToText}
               id='startTime'
               className='create-event__form__input'
             />
@@ -157,16 +177,22 @@ function CreateEventPage() {
           <h2 id='labels'>End Date & Time</h2>
           <div id='input-block'>
             <input
-              type='date'
+              type='text'
               name='eventEndDate'
               placeholder='End date'
+              onFocus={changeToDate}
+              onInput={changeToDate}
+              onBlur={changeToText}
               id='endDate'
               className='create-event__form__input'
             />
             <input
-              type='time'
+              type='text'
               name='eventEndTime'
               placeholder='End time'
+              onFocus={changeToTime}
+              onInput={changeToTime}
+              onBlur={changeToText}
               id='endTime'
               className='create-event__form__input'
             />
