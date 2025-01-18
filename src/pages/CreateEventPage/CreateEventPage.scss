@@ -104,9 +104,9 @@ label {
     flex-direction: column;
     justify-self: center;
     
-    width: 25vw;
+    // width: 25vw;
     padding: 0;
-    margin-left: -9rem;
+    margin-left: -5rem;
 
     &__form {
       width: 25vw;
@@ -194,11 +194,11 @@ label {
 
   @include mobile {
     margin: 0;
-    width: 100%;
-    justify-self: flex-start;
+    width: 25%;
+    // justify-self: flex-start;
 
     &__list {
-      width: 15rem;
+      width: 12rem;
 
       &__item {
         &__title {
