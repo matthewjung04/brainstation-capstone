@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.7.7",
+    "axios": "^1.15.0",
     "calendar": "^0.1.1",
     "dotenv": "^16.4.5",
     "json-calendar": "^1.12.0",
